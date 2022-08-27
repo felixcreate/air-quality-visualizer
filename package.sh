@@ -1,0 +1,2 @@
+"C:/Program Files/Java/jdk-18.0.1.1/bin/jpackage.exe" -t app-image --dest target/installer --name exportedjsontoxlsx --main-class org.felixfb.airquality.exportedjsontoxlsx.Start --input target/installer/input/libs --main-jar ../../../exportedjsontoxlsx-1.0-SNAPSHOT.jar --java-options -Xmx2048m --runtime-image target/app --app-version 1.0.0
+sleep 5

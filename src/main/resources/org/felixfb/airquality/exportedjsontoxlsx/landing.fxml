@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.felixfb.airquality.exportedjsontoxlsx.Landing">
+   <children>
+      <Label fx:id="pleaseChoose" layoutX="141.0" layoutY="67.0" prefHeight="41.0" prefWidth="220.0" text="Choose an import type and source." textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Pane layoutX="159.0" layoutY="211.0" prefHeight="25.0" prefWidth="183.0">
+         <children>
+            <Label layoutY="3.0" prefHeight="17.0" prefWidth="23.0" text="File:">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <TextField fx:id="importFile" editable="false" focusTraversable="false" layoutX="31.0" onMouseClicked="#onFileSelect" promptText="Click to choose file...">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Pane layoutX="156.0" layoutY="144.0" prefHeight="25.0" prefWidth="189.0">
+         <children>
+            <ChoiceBox fx:id="importType" layoutX="35.0" prefWidth="150.0" />
+            <Label layoutY="3.0" text="Type:">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,2 @@
+"C:\Program Files\Java\jdk-18.0.1.1\bin\jdeps.exe" --multi-release 18 --ignore-missing-deps --print-module-deps --class-path "target/installer/input/libs/" target/classes/org/felixfb/airquality/exportedjsontoxlsx/Start.class
+sleep 5
