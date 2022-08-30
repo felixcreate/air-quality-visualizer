@@ -17,8 +17,8 @@ public class Landing {
             importType.getItems().add(type);
         }
         importType.setValue(ImportType.getDefaultType());
-        importType.focusedProperty().addListener(new removeFocused());
-        importFile.focusedProperty().addListener(new removeFocused());
+        importType.focusedProperty().addListener(new RemoveFocused());
+        importFile.focusedProperty().addListener(new RemoveFocused());
     }
     @FXML
     private ChoiceBox<ImportType> importType;
