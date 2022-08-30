@@ -12,8 +12,22 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.9.0</junit.version>
+        <package.version>0.0.1</package.version>
     </properties>
-
+    <profiles>
+        <profile>
+            <id>platform-windows</id>
+            <properties>
+                <os.type>windows</os.type>
+            </properties>
+        </profile>
+        <profile>
+            <id>platform-macos</id>
+            <properties>
+                <os.type>macos</os.type>
+            </properties>
+        </profile>
+    </profiles>
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -68,35 +82,45 @@
                     <execution>
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>jlink</goal>
+                        </goals>
                         <configuration>
                             <mainClass>
                                 org.felixfb.airquality.exportedjsontoxlsx/org.felixfb.airquality.exportedjsontoxlsx.Start
                             </mainClass>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
+                            <launcher>runtime</launcher>
+                            <jlinkZipName>runtime</jlinkZipName>
+                            <jlinkImageName>runtime</jlinkImageName>
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
                             <jlinkVerbose>true</jlinkVerbose>
-                            <jlinkExecutable>C:\Program Files\Java\jdk-18.0.1.1\bin\jlink.exe</jlinkExecutable>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.3.0</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
                 <executions>
                     <execution>
-                        <id>copy-dependencies</id>
                         <phase>install</phase>
                         <goals>
-                            <goal>copy-dependencies</goal>
+                            <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                            <executable>sh</executable>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                            <arguments>
+                                <argument>package.sh</argument>
+                            </arguments>
+                            <environmentVariables>
+                                <PROJECT_VERSION>${package.version}</PROJECT_VERSION>
+                                <OS_TYPE>${os.type}</OS_TYPE>
+                            </environmentVariables>
                         </configuration>
                     </execution>
                 </executions>

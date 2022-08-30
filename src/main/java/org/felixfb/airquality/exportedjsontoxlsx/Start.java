@@ -25,7 +25,7 @@ public class Start extends Application {
         Start.root = parent;
         Scene scene = new Scene(parent);
         stage.setScene(scene);
-        stage.setTitle("Convert Air Quality Export to xlsx");
+        stage.setTitle("Package Air Quality Data");
         stage.getIcons().add(new Image(Objects.requireNonNull(Start.class.getResourceAsStream("icon16.png"))));
         stage.getIcons().add(new Image(Objects.requireNonNull(Start.class.getResourceAsStream("icon32.png"))));
         stage.getIcons().add(new Image(Objects.requireNonNull(Start.class.getResourceAsStream("icon64.png"))));

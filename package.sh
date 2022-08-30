@@ -1,2 +1,7 @@
-"C:/Program Files/Java/jdk-18.0.1.1/bin/jpackage.exe" -t app-image --dest target/installer --name exportedjsontoxlsx --main-class org.felixfb.airquality.exportedjsontoxlsx.Start --input target/installer/input/libs --main-jar ../../../exportedjsontoxlsx-1.0-SNAPSHOT.jar --java-options -Xmx2048m --runtime-image target/app --app-version 1.0.0
-sleep 5
+if [ "${OS_TYPE}" = "windows" ]
+then
+  "${JAVA_HOME}"/bin/jpackage.exe -t app-image --dest target/installer --name "Air Quality Data Packager" -m org.felixfb.airquality.exportedjsontoxlsx/org.felixfb.airquality.exportedjsontoxlsx.Start --java-options -Xmx2048m --runtime-image target/runtime --app-version "${PROJECT_VERSION}" --icon icons/icon.ico
+elif [ "${OS_TYPE}" = "macos" ]
+then
+  "${JAVA_HOME}"/bin/jpackage.exe -t app-image --dest target/installer --name "Air Quality Data Packager" -m org.felixfb.airquality.exportedjsontoxlsx/org.felixfb.airquality.exportedjsontoxlsx.Start --java-options -Xmx2048m --runtime-image target/runtime --app-version "${PROJECT_VERSION}" --icon icons/icon.icns --mac-package-name "Air Quality Data Packager"
+fi
