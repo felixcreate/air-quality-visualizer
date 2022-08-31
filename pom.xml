@@ -20,12 +20,22 @@
             <properties>
                 <os.type>windows</os.type>
             </properties>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
         </profile>
         <profile>
             <id>platform-macos</id>
             <properties>
                 <os.type>macos</os.type>
             </properties>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
         </profile>
     </profiles>
     <dependencies>
