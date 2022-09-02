@@ -31,6 +31,5 @@ public class Start extends Application {
         stage.getIcons().add(new Image(Objects.requireNonNull(Start.class.getResourceAsStream("icon64.png"))));
         stage.show();
         parent.requestFocus();
-
     }
 }
